@@ -421,8 +421,8 @@ public class pianoWindow implements ActionListener, KeyListener{
 		lblASharp6key.setBounds(810, 320, 40, 20);
 		frame.getContentPane().add(lblASharp6key);	
 		
-		ImageIcon CircImage = new ImageIcon("/Users/anmoltyagi/eclipse-workspace/Piano/src/Circle.png");
-		ImageIcon sharpcircImage = new ImageIcon("/Users/anmoltyagi/eclipse-workspace/Piano/src/sharpcircle1.png");
+		ImageIcon CircImage = new ImageIcon("Circle.png");
+		ImageIcon sharpcircImage = new ImageIcon("sharpcircle1.png");
 	//circle labels that show up when you press button	
 		c5circle = new JLabel(CircImage);
 		c5circle.setBackground(new Color(255, 255, 255));
