@@ -77,6 +77,10 @@ public class pianoWindow implements ActionListener, KeyListener{
 		frame.addKeyListener(this);
 
 	
+		//C5Keyboard = new C5Keyboard();
+		//btnC5.getInputMap().put(KeyStroke.getKeyStroke("Z"), "C5");
+	//	btnC5.getActionMap().put("C5", C5Keyboard);
+	
 		
 	
 	//labels
@@ -421,8 +425,8 @@ public class pianoWindow implements ActionListener, KeyListener{
 		lblASharp6key.setBounds(810, 320, 40, 20);
 		frame.getContentPane().add(lblASharp6key);	
 		
-		ImageIcon CircImage = new ImageIcon("/Users/anmoltyagi/eclipse-workspace/Piano/src/Circle.png");
-		ImageIcon sharpcircImage = new ImageIcon("/Users/anmoltyagi/eclipse-workspace/Piano/src/sharpcircle1.png");
+		ImageIcon CircImage = new ImageIcon("src/Circle.png");
+		ImageIcon sharpcircImage = new ImageIcon("src/sharpcircle1.png");
 	//circle labels that show up when you press button	
 		c5circle = new JLabel(CircImage);
 		c5circle.setBackground(new Color(255, 255, 255));
@@ -630,7 +634,7 @@ public class pianoWindow implements ActionListener, KeyListener{
 		
 		
 	//sharp buttons	
-		ImageIcon SharpImage = new ImageIcon("/Users/anmoltyagi/eclipse-workspace/Piano/src/SharpKey.png");
+		ImageIcon SharpImage = new ImageIcon("src/SharpKey.png");
 		
 		btnCSharp5 = new JButton("c#5", SharpImage) {};
 		btnCSharp5.setFont(new Font("Lucida Grande", Font.PLAIN, 0));
@@ -998,31 +1002,31 @@ public class pianoWindow implements ActionListener, KeyListener{
 		
 		
 	//assigning file to variable	
-		c5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/C5new.wav";
-		d5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/D5.wav";
-		e5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/E5.wav";
-		f5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/F5.wav";
-		g5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/G5.wav";
-		a5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/A5.wav";
-		b5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/B5.wav";
-		c6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/C6.wav";
-		d6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/D6.wav";
-		e6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/E6.wav";
-		f6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/F6.wav";
-		g6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/G6.wav";
-		a6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/A6.wav";
-		b6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/B6.wav";
-		cSharp5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/C#5.wav";
-		dSharp5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/D#5.wav";
-		fSharp5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/F#5.wav";
-		gSharp5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/G#5.wav";
-		aSharp5Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/A#5.wav";
-		cSharp6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/C#6.wav";
-		dSharp6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/D#6.wav";
-		fSharp6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/F#6.wav";
-		gSharp6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/G#6.wav";
-		aSharp6Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/A#6.wav";
-		c7Sound = "/Users/anmoltyagi/eclipse-workspace/Piano/res/C7.wav";
+		c5Sound = "res/C5new.wav";
+		d5Sound = "res/D5.wav";
+		e5Sound = "res/E5.wav";
+		f5Sound = "res/F5.wav";
+		g5Sound = "res/G5.wav";
+		a5Sound = "res/A5.wav";
+		b5Sound = "res/B5.wav";
+		c6Sound = "res/C6.wav";
+		d6Sound = "res/D6.wav";
+		e6Sound = "res/E6.wav";
+		f6Sound = "res/F6.wav";
+		g6Sound = "res/G6.wav";
+		a6Sound = "res/A6.wav";
+		b6Sound = "res/B6.wav";
+		cSharp5Sound = "res/C#5.wav";
+		dSharp5Sound = "res/D#5.wav";
+		fSharp5Sound = "res/F#5.wav";
+		gSharp5Sound = "res/G#5.wav";
+		aSharp5Sound = "res/A#5.wav";
+		cSharp6Sound = "res/C#6.wav";
+		dSharp6Sound = "res/D#6.wav";
+		fSharp6Sound = "res/F#6.wav";
+		gSharp6Sound = "res/G#6.wav";
+		aSharp6Sound = "res/A#6.wav";
+		c7Sound = "res/C7.wav";
 	}
 	// fetching the sound 
 	public class SoundEffect{
@@ -1063,15 +1067,9 @@ public class pianoWindow implements ActionListener, KeyListener{
 	}
 	
 	
-	public void C5Pressed(){
-		
-		System.out.println("C5 was pressed fammm");
-	//	frame.setFocusable(true);
 
 		
-		
-		
-	}
+
 // events for mouse clicking on the buttons	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("c5")) {
@@ -1134,14 +1132,14 @@ public class pianoWindow implements ActionListener, KeyListener{
 		if (e.getActionCommand().equals("a6")) {
 			se.setFile(a6Sound);
 			se.play();
+			
 		}
 		if (e.getActionCommand().equals("b6")) {
 			se.setFile(b6Sound);
 			se.play();		
 		}
 		if (e.getActionCommand().equals("c7")) {
-			se.setFile(c7Sound);
-			se.play();
+			
 		}
 		if (e.getActionCommand().equals("c#5")) {
 			se.setFile(cSharp5Sound);
