@@ -77,10 +77,6 @@ public class pianoWindow implements ActionListener, KeyListener{
 		frame.addKeyListener(this);
 
 	
-		//C5Keyboard = new C5Keyboard();
-		//btnC5.getInputMap().put(KeyStroke.getKeyStroke("Z"), "C5");
-	//	btnC5.getActionMap().put("C5", C5Keyboard);
-	
 		
 	
 	//labels
@@ -1138,14 +1134,14 @@ public class pianoWindow implements ActionListener, KeyListener{
 		if (e.getActionCommand().equals("a6")) {
 			se.setFile(a6Sound);
 			se.play();
-			
 		}
 		if (e.getActionCommand().equals("b6")) {
 			se.setFile(b6Sound);
 			se.play();		
 		}
 		if (e.getActionCommand().equals("c7")) {
-			
+			se.setFile(c7Sound);
+			se.play();
 		}
 		if (e.getActionCommand().equals("c#5")) {
 			se.setFile(cSharp5Sound);
