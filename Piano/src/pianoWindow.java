@@ -23,6 +23,10 @@ import javax.swing.UIManager;
 public class pianoWindow implements ActionListener, KeyListener{
 	
 	//Action C5Keyboard;
+	private static final int circle = 0;
+	private static final int sharpCircle = 1;
+	private static final int sharpKey = 2;
+
 
 	public JFrame frame;
 	public JButton btnC5, btnD5, btnE5, btnF5, btnG5, btnA5, btnB5, btnC6, btnD6, btnE6, btnF6, btnG6, btnA6, btnB6, btnC7 ;
@@ -37,7 +41,11 @@ public class pianoWindow implements ActionListener, KeyListener{
 	public JLabel c5circle, d5circle, e5circle, f5circle, g5circle, a5circle, b5circle, c6circle, d6circle, e6circle, f6circle, g6circle, a6circle, b6circle, c7circle;
 	public JLabel csharp5circle, dsharp5circle, fsharp5circle, gsharp5circle, asharp5circle, csharp6circle, dsharp6circle, fsharp6circle, gsharp6circle, asharp6circle;
 	             
-	
+	public static imagesArray [] = new String[] {
+		"../res/images/Circle.png",
+		"../res/images/sharpcircle1.png",
+		"../res/images/SharpKey.png"
+	};
 
 	
 	/**
@@ -59,7 +67,6 @@ public class pianoWindow implements ActionListener, KeyListener{
 			
 			
 	}
-	
 
 	/**
 	 * Create the application.
@@ -425,8 +432,8 @@ public class pianoWindow implements ActionListener, KeyListener{
 		lblASharp6key.setBounds(810, 320, 40, 20);
 		frame.getContentPane().add(lblASharp6key);	
 		
-		ImageIcon CircImage = new ImageIcon("src/Circle.png");
-		ImageIcon sharpcircImage = new ImageIcon("src/sharpcircle1.png");
+		ImageIcon CircImage = new ImageIcon(imagesArray[circle]);
+		ImageIcon sharpcircImage = new ImageIcon(imagesArray[sharpCircle]);
 	//circle labels that show up when you press button	
 		c5circle = new JLabel(CircImage);
 		c5circle.setBackground(new Color(255, 255, 255));
@@ -634,7 +641,7 @@ public class pianoWindow implements ActionListener, KeyListener{
 		
 		
 	//sharp buttons	
-		ImageIcon SharpImage = new ImageIcon("src/SharpKey.png");
+		ImageIcon SharpImage = new ImageIcon(images[sharpKey]);
 		
 		btnCSharp5 = new JButton("c#5", SharpImage) {};
 		btnCSharp5.setFont(new Font("Lucida Grande", Font.PLAIN, 0));
