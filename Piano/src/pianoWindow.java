@@ -23,10 +23,35 @@ import javax.swing.UIManager;
 public class pianoWindow implements ActionListener, KeyListener{
 	
 	//Action C5Keyboard;
-	private static final int circle = 0;
-	private static final int sharpCircle = 1;
-	private static final int sharpKey = 2;
-
+	private static final int CIRCLE = 0;
+	private static final int SHARPCIRCLE = 1;
+	private static final int SHARPKEY = 2;
+	
+	private static final int C5SOUND = 0;
+	private static final int D5SOUND = 1;
+	private static final int E5SOUND = 2;
+	private static final int F5SOUND = 3;
+	private static final int G5SOUND = 4;
+	private static final int A5SOUND = 5;
+	private static final int B5SOUND = 6;
+	private static final int C6SOUND = 7;
+	private static final int D6SOUND = 8;
+	private static final int E6SOUND = 9;
+	private static final int F6SOUND = 10;
+	private static final int G6SOUND = 11;
+	private static final int A6SOUND = 12;
+	private static final int B6SOUND = 13;
+	private static final int CSHARP5SOUND = 14;
+	private static final int DSHARP5SOUND = 15;
+	private static final int FSHARP5SOUND = 16;
+	private static final int GSHARP5SOUND = 17;
+	private static final int ASHARP5SOUND = 18;
+	private static final int CSHARP6SOUND = 19;
+	private static final int DSHARP6SOUND = 20;
+	private static final int FSHARP6SOUND = 21;
+	private static final int GSHARP6SOUND = 22;
+	private static final int ASHARP6SOUND = 23;
+	private static final int C7SOUND = 24;
 
 	public JFrame frame;
 	public JButton btnC5, btnD5, btnE5, btnF5, btnG5, btnA5, btnB5, btnC6, btnD6, btnE6, btnF6, btnG6, btnA6, btnB6, btnC7 ;
@@ -34,17 +59,45 @@ public class pianoWindow implements ActionListener, KeyListener{
 	public JRadioButton onNote, offNote, onKeyboard, offKeyboard;
 	public ButtonGroup keyboardGroup;
 	public ButtonGroup noteGroup;
-	String c5Sound, d5Sound, e5Sound, f5Sound, g5Sound, a5Sound, b5Sound, c6Sound, d6Sound, e6Sound, f6Sound, g6Sound, a6Sound, b6Sound, cSharp5Sound, dSharp5Sound,fSharp5Sound,gSharp5Sound, aSharp5Sound, cSharp6Sound, dSharp6Sound, fSharp6Sound, gSharp6Sound, aSharp6Sound, c7Sound ;
 	SoundEffect se = new SoundEffect();
 	public JLabel lblC5Key;
 	private boolean keysDown[] = new boolean[0x10000];
 	public JLabel c5circle, d5circle, e5circle, f5circle, g5circle, a5circle, b5circle, c6circle, d6circle, e6circle, f6circle, g6circle, a6circle, b6circle, c7circle;
 	public JLabel csharp5circle, dsharp5circle, fsharp5circle, gsharp5circle, asharp5circle, csharp6circle, dsharp6circle, fsharp6circle, gsharp6circle, asharp6circle;
 	             
-	public static imagesArray [] = new String[] {
-		"../res/images/Circle.png",
-		"../res/images/sharpcircle1.png",
-		"../res/images/SharpKey.png"
+	public static String imagesArray [] = new String[] {
+		"res/images/Circle.png",
+		"res/images/sharpcircle1.png",
+		"res/images/SharpKey.png"
+	};
+	
+	public static String soundsArray [] = new String [] {
+			
+			"res/wavFiles/C5New.wav", //0
+			"res/wavFiles/D5.wav",
+			"res/wavFiles/E5.wav",
+			"res/wavFiles/F5.wav",
+			"res/wavFiles/G5.wav",
+			"res/wavFiles/A5.wav",
+			"res/wavFiles/B5.wav",
+			"res/wavFiles/C6.wav",
+			"res/wavFiles/D6.wav",
+			"res/wavFiles/E6.wav",
+			"res/wavFiles/F6.wav",
+			"res/wavFiles/G6.wav",
+			"res/wavFiles/A6.wav",
+			"res/wavFiles/B6.wav",
+			"res/wavFiles/C#5.wav",
+			"res/wavFiles/D#5.wav",
+			"res/wavFiles/F#5.wav",
+			"res/wavFiles/G#5.wav",
+			"res/wavFiles/A#5.wav",
+			"res/wavFiles/C#6.wav",
+			"res/wavFiles/D#6.wav",
+			"res/wavFiles/F#6.wav",
+			"res/wavFiles/G#6.wav",
+			"res/wavFiles/A#6.wav",
+			"res/wavFiles/C7.wav"
 	};
 
 	
@@ -432,8 +485,8 @@ public class pianoWindow implements ActionListener, KeyListener{
 		lblASharp6key.setBounds(810, 320, 40, 20);
 		frame.getContentPane().add(lblASharp6key);	
 		
-		ImageIcon CircImage = new ImageIcon(imagesArray[circle]);
-		ImageIcon sharpcircImage = new ImageIcon(imagesArray[sharpCircle]);
+		ImageIcon CircImage = new ImageIcon(imagesArray[CIRCLE]);
+		ImageIcon sharpcircImage = new ImageIcon(imagesArray[SHARPCIRCLE]);
 	//circle labels that show up when you press button	
 		c5circle = new JLabel(CircImage);
 		c5circle.setBackground(new Color(255, 255, 255));
@@ -641,7 +694,7 @@ public class pianoWindow implements ActionListener, KeyListener{
 		
 		
 	//sharp buttons	
-		ImageIcon SharpImage = new ImageIcon(images[sharpKey]);
+		ImageIcon SharpImage = new ImageIcon(imagesArray[SHARPKEY]);
 		
 		btnCSharp5 = new JButton("c#5", SharpImage) {};
 		btnCSharp5.setFont(new Font("Lucida Grande", Font.PLAIN, 0));
@@ -1004,36 +1057,6 @@ public class pianoWindow implements ActionListener, KeyListener{
 		craftedLbl.setBounds(50, 77, 231, 30);
 		frame.getContentPane().add(craftedLbl);
 		
-		
-		
-		
-		
-	//assigning file to variable	
-		c5Sound = "res/C5new.wav";
-		d5Sound = "res/D5.wav";
-		e5Sound = "res/E5.wav";
-		f5Sound = "res/F5.wav";
-		g5Sound = "res/G5.wav";
-		a5Sound = "res/A5.wav";
-		b5Sound = "res/B5.wav";
-		c6Sound = "res/C6.wav";
-		d6Sound = "res/D6.wav";
-		e6Sound = "res/E6.wav";
-		f6Sound = "res/F6.wav";
-		g6Sound = "res/G6.wav";
-		a6Sound = "res/A6.wav";
-		b6Sound = "res/B6.wav";
-		cSharp5Sound = "res/C#5.wav";
-		dSharp5Sound = "res/D#5.wav";
-		fSharp5Sound = "res/F#5.wav";
-		gSharp5Sound = "res/G#5.wav";
-		aSharp5Sound = "res/A#5.wav";
-		cSharp6Sound = "res/C#6.wav";
-		dSharp6Sound = "res/D#6.wav";
-		fSharp6Sound = "res/F#6.wav";
-		gSharp6Sound = "res/G#6.wav";
-		aSharp6Sound = "res/A#6.wav";
-		c7Sound = "res/C7.wav";
 	}
 	// fetching the sound 
 	public class SoundEffect{
@@ -1080,112 +1103,112 @@ public class pianoWindow implements ActionListener, KeyListener{
 // events for mouse clicking on the buttons	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("c5")) {
-			se.setFile(c5Sound);
+			se.setFile(soundsArray[C5SOUND]);
 			se.play();
-			
 
 		}
 		if (e.getActionCommand().equals("d5")) {
-			se.setFile(d5Sound);
+			se.setFile(soundsArray[D5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("e5")) {
-			se.setFile(e5Sound);
+			se.setFile(soundsArray[E5SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("f5")) {
-			se.setFile(f5Sound);
+			se.setFile(soundsArray[F5SOUND]);
 			se.play();
 			
 		}	
 		if (e.getActionCommand().equals("g5")) {
-			se.setFile(g5Sound);
+			se.setFile(soundsArray[G5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("a5")) {
-			se.setFile(a5Sound);
+			se.setFile(soundsArray[A5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("b5")) {
-			se.setFile(b5Sound);
+			se.setFile(soundsArray[B5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("c6")) {
-			se.setFile(c6Sound);
+			se.setFile(soundsArray[C6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("d6")) {
-			se.setFile(d6Sound);
+			se.setFile(soundsArray[D6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("e6")) {
-			se.setFile(e6Sound);
+			se.setFile(soundsArray[E6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("f6")) {
-			se.setFile(f6Sound);
+			se.setFile(soundsArray[F6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("g6")) {
-			se.setFile(g6Sound);
+			se.setFile(soundsArray[G6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("a6")) {
-			se.setFile(a6Sound);
+			se.setFile(soundsArray[A6SOUND]);
 			se.play();
 			
 		}
 		if (e.getActionCommand().equals("b6")) {
-			se.setFile(b6Sound);
+			se.setFile(soundsArray[B6SOUND]);
 			se.play();		
 		}
 		if (e.getActionCommand().equals("c7")) {
-			
+			se.setFile(soundsArray[C7SOUND]);
+			se.play();
 		}
 		if (e.getActionCommand().equals("c#5")) {
-			se.setFile(cSharp5Sound);
+			se.setFile(soundsArray[CSHARP5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("d#5")) {
-			se.setFile(dSharp5Sound);
+			se.setFile(soundsArray[DSHARP5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("f#5")) {
-			se.setFile(fSharp5Sound);
+			se.setFile(soundsArray[FSHARP5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("g#5")) {
-			se.setFile(gSharp5Sound);
+			se.setFile(soundsArray[GSHARP5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("a#5")) {
-			se.setFile(aSharp5Sound);
+			se.setFile(soundsArray[ASHARP5SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("c#6")) {
-			se.setFile(cSharp5Sound);
+			se.setFile(soundsArray[CSHARP6SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("d#6")) {
-			se.setFile(dSharp5Sound);
+			se.setFile(soundsArray[DSHARP6SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("f#6")) {
-			se.setFile(fSharp5Sound);
+			se.setFile(soundsArray[FSHARP6SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("g#6")) {
-			se.setFile(gSharp5Sound);
+			se.setFile(soundsArray[GSHARP6SOUND]);
 			se.play();
 		}
 		if (e.getActionCommand().equals("a#6")) {
-			se.setFile(aSharp5Sound);
+			se.setFile(soundsArray[ASHARP6SOUND]);
 			se.play();
 		}
 		
@@ -1204,151 +1227,151 @@ public class pianoWindow implements ActionListener, KeyListener{
 			
 			
 			if (e.getKeyCode() == KeyEvent.VK_Z) {
-				se.setFile(c5Sound);
+				se.setFile(soundsArray[C5SOUND]);
 				se.play();
 				c5circle.setVisible(true);
 				System.out.println("C5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_X) {
-				se.setFile(d5Sound);
+				se.setFile(soundsArray[D5SOUND]);
 				se.play();
 				d5circle.setVisible(true);
 				System.out.println("D5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_C) {
-				se.setFile(e5Sound);
+				se.setFile(soundsArray[E5SOUND]);
 				se.play();
 				e5circle.setVisible(true);
 				System.out.println("E5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_V) {
-				se.setFile(f5Sound);
+				se.setFile(soundsArray[F5SOUND]);
 				se.play();
 				f5circle.setVisible(true);
 				System.out.println("F5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_B) {
-				se.setFile(g5Sound);
+				se.setFile(soundsArray[G5SOUND]);
 				se.play();
 				g5circle.setVisible(true);
 				System.out.println("G5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_N) {
-				se.setFile(a5Sound);
+				se.setFile(soundsArray[A5SOUND]);
 				se.play();
 				a5circle.setVisible(true);
 				System.out.println("A5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_M) {
-				se.setFile(b5Sound);
+				se.setFile(soundsArray[B5SOUND]);
 				se.play();
 				b5circle.setVisible(true);
 				System.out.println("B5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_S) {
-				se.setFile(cSharp5Sound);
+				se.setFile(soundsArray[CSHARP5SOUND]);
 				se.play();
 				csharp5circle.setVisible(true);
 				System.out.println("C#5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_D) {
-				se.setFile(dSharp5Sound);
+				se.setFile(soundsArray[DSHARP5SOUND]);
 				se.play();
 				dsharp5circle.setVisible(true);
 				System.out.println("D#5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_G) {
-				se.setFile(fSharp5Sound);
+				se.setFile(soundsArray[FSHARP5SOUND]);
 				se.play();
 				fsharp5circle.setVisible(true);
 				System.out.println("F#5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_H) {
-				se.setFile(gSharp5Sound);
+				se.setFile(soundsArray[GSHARP5SOUND]);
 				se.play();
 				gsharp5circle.setVisible(true);
 				System.out.println("G#5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_J) {
-				se.setFile(aSharp5Sound);
+				se.setFile(soundsArray[ASHARP5SOUND]);
 				se.play();
 				asharp5circle.setVisible(true);
 				System.out.println("A#5 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_Q) {
-				se.setFile(c6Sound);
+				se.setFile(soundsArray[C6SOUND]);
 				se.play();
 				c6circle.setVisible(true);
 				System.out.println("C6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_W) {
-				se.setFile(d6Sound);
+				se.setFile(soundsArray[D6SOUND]);
 				se.play();
 				d6circle.setVisible(true);
 				System.out.println("D6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_E) {
-				se.setFile(e6Sound);
+				se.setFile(soundsArray[E6SOUND]);
 				se.play();
 				e6circle.setVisible(true);
 				System.out.println("E6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_R) {
-				se.setFile(f6Sound);
+				se.setFile(soundsArray[F6SOUND]);
 				se.play();
 				f6circle.setVisible(true);
 				System.out.println("F6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_T) {
-				se.setFile(g6Sound);
+				se.setFile(soundsArray[G6SOUND]);
 				se.play();
 				g6circle.setVisible(true);
 				System.out.println("G6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_Y) {
-				se.setFile(a6Sound);
+				se.setFile(soundsArray[A6SOUND]);
 				se.play();
 				a6circle.setVisible(true);
 				System.out.println("A6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_U) {
-				se.setFile(b6Sound);
+				se.setFile(soundsArray[B6SOUND]);
 				se.play();
 				b6circle.setVisible(true);
 				System.out.println("B6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_I) {
-				se.setFile(c7Sound);
+				se.setFile(soundsArray[C7SOUND]);
 				se.play();
 				c7circle.setVisible(true);
 				System.out.println("C7 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_2) {
-				se.setFile(cSharp6Sound);
+				se.setFile(soundsArray[CSHARP6SOUND]);
 				se.play();
 				csharp6circle.setVisible(true);
 				System.out.println("C#6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_3) {
-				se.setFile(dSharp6Sound);
+				se.setFile(soundsArray[DSHARP6SOUND]);
 				se.play();
 				dsharp6circle.setVisible(true);
 				System.out.println("D#6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_5) {
-				se.setFile(fSharp6Sound);
+				se.setFile(soundsArray[FSHARP6SOUND]);
 				se.play();
 				fsharp6circle.setVisible(true);
 				System.out.println("F#6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_6) {
-				se.setFile(gSharp6Sound);
+				se.setFile(soundsArray[GSHARP6SOUND]);
 				se.play();
 				gsharp6circle.setVisible(true);
 				System.out.println("G#6 played");
 			}
 			if (e.getKeyCode()== KeyEvent.VK_7) {
-				se.setFile(aSharp6Sound);
+				se.setFile(soundsArray[ASHARP6SOUND]);
 				se.play();
 				asharp6circle.setVisible(true);
 				System.out.println("A#6 played");
