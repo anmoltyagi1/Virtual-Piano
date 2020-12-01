@@ -1042,7 +1042,8 @@ public class pianoWindow implements ActionListener, KeyListener{
 		frame.getContentPane().add(offNote);
 		frame.getContentPane().add(onKeyboard);
 		frame.getContentPane().add(offKeyboard);
-	// create group for the radiobuttons	
+		
+	// create group for the two radiobuttons	
 		noteGroup = new ButtonGroup();
 		noteGroup.add(onNote);
 		noteGroup.add(offNote);
