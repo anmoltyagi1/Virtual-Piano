@@ -1216,7 +1216,7 @@ public class pianoWindow implements ActionListener, KeyListener{
 	}
 	
 	
-	// when the key is pressed on keyboard	
+	// when the key is pressed on keyboard, play the notes	
 		
 		@Override
 		public void keyPressed(KeyEvent e) {
